@@ -3,7 +3,6 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Check,
-  FileText,
   FolderKanban,
   Github,
   Linkedin,
@@ -196,34 +195,15 @@ function App() {
             </div>
           </div>
 
-          <aside className="about-panel reveal reveal-delay-2" aria-label="Professional summary">
-            <div className="about-panel-header">
-              <span>At a glance</span>
-              <span className="availability"><i aria-hidden="true" />Open to connect</span>
-            </div>
-
-            <div className="about-panel-intro">
-              <p>Currently</p>
-              <h2>Software Developer<br />at Finch.</h2>
-            </div>
-
-            <dl className="about-details">
-              <div>
-                <dt>Education</dt>
-                <dd>Texas A&amp;M University<br />Computer Science, Engineering Honors</dd>
-              </div>
-              <div>
-                <dt>Focus</dt>
-                <dd>Full-stack systems, AI/ML infrastructure, and computer vision.</dd>
-              </div>
-            </dl>
-
+          <aside className="resume-section reveal reveal-delay-2" aria-label="Résumé">
+            <p className="resume-copy">A concise overview of my experience and selected work.</p>
             <a
               className="resume-link"
-              href="mailto:pribiswal7@gmail.com?subject=R%C3%A9sum%C3%A9%20request"
+              href={`${import.meta.env.BASE_URL}priyansu-biswal-resume.pdf`}
+              target="_blank"
+              rel="noreferrer"
             >
-              <span className="resume-link-icon"><FileText size={17} aria-hidden="true" /></span>
-              <span><strong>Request my résumé</strong><small>Sent directly to your inbox</small></span>
+              View my résumé
               <ArrowUpRight size={17} aria-hidden="true" />
             </a>
           </aside>

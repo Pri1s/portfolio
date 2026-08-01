@@ -284,145 +284,42 @@ a {
   transform: translateY(-2px);
 }
 
-.about-panel {
-  position: relative;
+.resume-section {
   justify-self: end;
-  width: min(490px, 100%);
-  padding: 27px;
-  border: 1px solid rgba(21, 21, 21, 0.12);
-  border-radius: 20px;
-  background:
-    linear-gradient(130deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.24)),
-    var(--paper-deep);
-  box-shadow: 0 24px 55px rgba(34, 28, 18, 0.08);
-}
-
-.about-panel::before {
-  position: absolute;
-  top: -26px;
-  right: -20px;
-  z-index: -1;
-  width: 144px;
-  height: 144px;
-  border-radius: 50%;
-  background: var(--lime);
-  content: "";
-}
-
-.about-panel-header,
-.availability,
-.resume-link {
-  display: flex;
-  align-items: center;
-}
-
-.about-panel-header {
-  justify-content: space-between;
-  color: #5b5953;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.availability {
-  gap: 6px;
-  letter-spacing: 0.06em;
-}
-
-.availability i {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #67a329;
-  box-shadow: 0 0 0 3px rgba(103, 163, 41, 0.16);
-}
-
-.about-panel-intro {
-  margin: 43px 0 34px;
-}
-
-.about-panel-intro p {
-  margin: 0 0 7px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.about-panel-intro h2 {
-  margin: 0;
-  font-family: "DM Serif Display", Georgia, serif;
-  font-size: clamp(36px, 4vw, 53px);
-  font-weight: 400;
-  letter-spacing: -0.045em;
-  line-height: 0.93;
-}
-
-.about-details {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 17px;
-  margin: 0;
+  width: min(380px, 100%);
   padding: 20px 0;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.about-details div + div {
-  padding-left: 17px;
-  border-left: 1px solid var(--line);
+.resume-link {
+  display: flex;
+  align-items: center;
 }
 
-.about-details dt {
-  margin-bottom: 8px;
-  color: #68665f;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-}
-
-.about-details dd {
-  margin: 0;
-  color: #3e3c37;
-  font-size: 12px;
-  line-height: 1.55;
+.resume-copy {
+  max-width: 275px;
+  margin: 0 0 26px;
+  color: var(--muted);
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(22px, 2.4vw, 30px);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
 }
 
 .resume-link {
-  gap: 11px;
-  margin-top: 19px;
-  padding: 12px 0 0;
-  transition: color 180ms ease, transform 180ms ease;
+  display: inline-flex;
+  gap: 8px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid currentColor;
+  font-size: 13px;
+  font-weight: 700;
+  transition: color 180ms ease, gap 180ms ease;
 }
 
 .resume-link:hover {
   color: var(--orange);
-  transform: translateX(3px);
-}
-
-.resume-link-icon {
-  display: grid;
-  flex: 0 0 auto;
-  place-items: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 8px;
-  background: var(--lime);
-}
-
-.resume-link span:nth-child(2) {
-  display: grid;
-  gap: 2px;
-  flex: 1;
-}
-
-.resume-link strong {
-  font-size: 12px;
-}
-
-.resume-link small {
-  color: var(--muted);
-  font-size: 10px;
+  gap: 11px;
 }
 
 .scroll-cue {
@@ -736,8 +633,8 @@ footer a {
     font-size: clamp(62px, 9vw, 82px);
   }
 
-  .about-panel {
-    width: min(430px, 100%);
+  .resume-section {
+    width: min(340px, 100%);
   }
 
   .project-card {
@@ -814,9 +711,9 @@ footer a {
     max-width: 520px;
   }
 
-  .about-panel {
+  .resume-section {
     justify-self: center;
-    width: min(490px, 100%);
+    width: min(520px, 100%);
     margin-top: 10px;
   }
 
@@ -877,14 +774,6 @@ footer a {
 
   .social-row {
     margin-top: 26px;
-  }
-
-  .about-panel {
-    padding: 22px;
-  }
-
-  .about-panel-intro {
-    margin: 34px 0 28px;
   }
 
   .section-heading h2,
