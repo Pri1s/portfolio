@@ -198,7 +198,10 @@ function App() {
           <div className="hero-visual reveal reveal-delay-2" aria-label="Illustrated portrait of Priyansu working">
             <div className="visual-orbit visual-orbit-one" />
             <div className="visual-orbit visual-orbit-two" />
-            <img src="/priyansu-avatar-hero.png" alt="Anime-style illustration of Priyansu at his computer" />
+            <img
+              src={`${import.meta.env.BASE_URL}priyansu-avatar-hero.png`}
+              alt="Anime-style illustration of Priyansu at his computer"
+            />
             <div className="visual-note">
               <span>Building on the web</span>
               <ArrowUpRight size={14} aria-hidden="true" />
