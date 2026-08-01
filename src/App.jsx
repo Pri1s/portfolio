@@ -3,6 +3,7 @@ import {
   ArrowDownRight,
   ArrowUpRight,
   Check,
+  FileText,
   FolderKanban,
   Github,
   Linkedin,
@@ -195,18 +196,37 @@ function App() {
             </div>
           </div>
 
-          <div className="hero-visual reveal reveal-delay-2" aria-label="Illustrated portrait of Priyansu working">
-            <div className="visual-orbit visual-orbit-one" />
-            <div className="visual-orbit visual-orbit-two" />
-            <img
-              src={`${import.meta.env.BASE_URL}priyansu-avatar-hero.png`}
-              alt="Anime-style illustration of Priyansu at his computer"
-            />
-            <div className="visual-note">
-              <span>Building on the web</span>
-              <ArrowUpRight size={14} aria-hidden="true" />
+          <aside className="about-panel reveal reveal-delay-2" aria-label="Professional summary">
+            <div className="about-panel-header">
+              <span>At a glance</span>
+              <span className="availability"><i aria-hidden="true" />Open to connect</span>
             </div>
-          </div>
+
+            <div className="about-panel-intro">
+              <p>Currently</p>
+              <h2>Software Developer<br />at Finch.</h2>
+            </div>
+
+            <dl className="about-details">
+              <div>
+                <dt>Education</dt>
+                <dd>Texas A&amp;M University<br />Computer Science, Engineering Honors</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>Full-stack systems, AI/ML infrastructure, and computer vision.</dd>
+              </div>
+            </dl>
+
+            <a
+              className="resume-link"
+              href="mailto:pribiswal7@gmail.com?subject=R%C3%A9sum%C3%A9%20request"
+            >
+              <span className="resume-link-icon"><FileText size={17} aria-hidden="true" /></span>
+              <span><strong>Request my résumé</strong><small>Sent directly to your inbox</small></span>
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </a>
+          </aside>
 
           <button className="scroll-cue" type="button" onClick={() => scrollTo("projects")}>
             <span>Scroll to discover</span>

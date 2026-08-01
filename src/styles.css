@@ -284,75 +284,145 @@ a {
   transform: translateY(-2px);
 }
 
-.hero-visual {
+.about-panel {
   position: relative;
-  z-index: 1;
   justify-self: end;
-  width: min(540px, 100%);
-  aspect-ratio: 1 / 1;
+  width: min(490px, 100%);
+  padding: 27px;
+  border: 1px solid rgba(21, 21, 21, 0.12);
+  border-radius: 20px;
+  background:
+    linear-gradient(130deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.24)),
+    var(--paper-deep);
+  box-shadow: 0 24px 55px rgba(34, 28, 18, 0.08);
 }
 
-.hero-visual::after {
+.about-panel::before {
   position: absolute;
-  z-index: -2;
-  top: 10%;
-  right: -6%;
-  width: 70%;
-  height: 70%;
+  top: -26px;
+  right: -20px;
+  z-index: -1;
+  width: 144px;
+  height: 144px;
   border-radius: 50%;
   background: var(--lime);
   content: "";
-  filter: blur(0);
 }
 
-.hero-visual img {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 48% 52% 44% 56% / 42% 44% 56% 58%;
-  filter: saturate(0.88) contrast(1.04);
-  mask-image: radial-gradient(ellipse 72% 75% at 52% 52%, #000 68%, transparent 94%);
-}
-
-.visual-orbit {
-  position: absolute;
-  z-index: -1;
-  border: 1px solid rgba(21, 21, 21, 0.2);
-  border-radius: 50%;
-}
-
-.visual-orbit-one {
-  inset: 7% -4% 2% 8%;
-  transform: rotate(17deg);
-}
-
-.visual-orbit-two {
-  inset: 2% 9% 8% -1%;
-  border-style: dashed;
-  transform: rotate(-14deg);
-}
-
-.visual-note {
-  position: absolute;
-  z-index: 3;
-  right: -7px;
-  bottom: 13%;
+.about-panel-header,
+.availability,
+.resume-link {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 12px 14px;
-  border: 1px solid rgba(21, 21, 21, 0.1);
-  border-radius: 9px;
-  color: #393832;
-  background: rgba(255, 255, 255, 0.83);
-  box-shadow: 0 16px 35px rgba(37, 31, 21, 0.1);
-  backdrop-filter: blur(12px);
+}
+
+.about-panel-header {
+  justify-content: space-between;
+  color: #5b5953;
   font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.availability {
+  gap: 6px;
+  letter-spacing: 0.06em;
+}
+
+.availability i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #67a329;
+  box-shadow: 0 0 0 3px rgba(103, 163, 41, 0.16);
+}
+
+.about-panel-intro {
+  margin: 43px 0 34px;
+}
+
+.about-panel-intro p {
+  margin: 0 0 7px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.about-panel-intro h2 {
+  margin: 0;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(36px, 4vw, 53px);
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.93;
+}
+
+.about-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 17px;
+  margin: 0;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.about-details div + div {
+  padding-left: 17px;
+  border-left: 1px solid var(--line);
+}
+
+.about-details dt {
+  margin-bottom: 8px;
+  color: #68665f;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.about-details dd {
+  margin: 0;
+  color: #3e3c37;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.resume-link {
+  gap: 11px;
+  margin-top: 19px;
+  padding: 12px 0 0;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.resume-link:hover {
+  color: var(--orange);
+  transform: translateX(3px);
+}
+
+.resume-link-icon {
+  display: grid;
+  flex: 0 0 auto;
+  place-items: center;
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  background: var(--lime);
+}
+
+.resume-link span:nth-child(2) {
+  display: grid;
+  gap: 2px;
+  flex: 1;
+}
+
+.resume-link strong {
+  font-size: 12px;
+}
+
+.resume-link small {
+  color: var(--muted);
+  font-size: 10px;
 }
 
 .scroll-cue {
@@ -666,7 +736,7 @@ footer a {
     font-size: clamp(62px, 9vw, 82px);
   }
 
-  .hero-visual {
+  .about-panel {
     width: min(430px, 100%);
   }
 
@@ -744,14 +814,10 @@ footer a {
     max-width: 520px;
   }
 
-  .hero-visual {
+  .about-panel {
     justify-self: center;
-    width: min(500px, 100%);
+    width: min(490px, 100%);
     margin-top: 10px;
-  }
-
-  .visual-note {
-    right: 3%;
   }
 
   .scroll-cue {
@@ -811,6 +877,14 @@ footer a {
 
   .social-row {
     margin-top: 26px;
+  }
+
+  .about-panel {
+    padding: 22px;
+  }
+
+  .about-panel-intro {
+    margin: 34px 0 28px;
   }
 
   .section-heading h2,
