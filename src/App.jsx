@@ -50,6 +50,16 @@ const projects = [
     tone: "lime",
   },
   {
+    id: "search-engine",
+    title: "Search Engine",
+    description:
+      "A basketball vertical search engine with BM25 ranking and title boosting to surface the most relevant results.",
+    tags: ["FastAPI", "PostgreSQL", "BM25"],
+    githubUrl: "https://github.com/Pri1s/search-engine",
+    featured: true,
+    tone: "paper",
+  },
+  {
     id: "fleet-os",
     title: "FleetOS",
     description:
