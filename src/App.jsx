@@ -142,7 +142,7 @@ function App() {
           <div className="hero-copy">
             <p className="hero-kicker reveal reveal-delay-1">Hello there, I’m</p>
             <h1 className="reveal reveal-delay-1">
-              Priyansu
+              Pri
               <br />
               Biswal<span className="period">.</span>
             </h1>
@@ -187,7 +187,7 @@ function App() {
                 href="https://github.com/Pri1s"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Priyansu on GitHub"
+                aria-label="Pri Biswal on GitHub"
               >
                 <Github size={18} />
               </a>
@@ -195,11 +195,11 @@ function App() {
                 href="https://www.linkedin.com/in/priyansu-biswal-677532279/"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Priyansu on LinkedIn"
+                aria-label="Pri Biswal on LinkedIn"
               >
                 <Linkedin size={18} />
               </a>
-              <a href="mailto:pribiswal7@gmail.com" aria-label="Email Priyansu">
+              <a href="mailto:pribiswal7@gmail.com" aria-label="Email Pri Biswal">
                 <Mail size={18} />
               </a>
             </div>
@@ -287,7 +287,7 @@ function App() {
       </main>
 
       <footer>
-        <p>Designed & built by Priyansu Biswal.</p>
+        <p>Designed & built by Pri Biswal.</p>
         <div>
           <a href="https://github.com/Pri1s" target="_blank" rel="noreferrer">
             GitHub <ArrowUpRight size={13} />

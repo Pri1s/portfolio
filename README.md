@@ -1,4 +1,4 @@
-# Priyansu Biswal — Portfolio
+# Pri Biswal — Portfolio
 
 A responsive React portfolio inspired by the supplied editorial reference.
 
