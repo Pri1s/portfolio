@@ -336,7 +336,7 @@ function App() {
           </div>
 
           <div className="project-grid">
-            {projects.map(({ id, title, highlights, tags, githubUrl, liveUrl, tone }) => (
+            {projects.map(({ id, title, highlights, tags, githubUrl, tone }) => (
               <article className={`project-card project-card-${tone}`} key={id}>
                 <div>
                   <h3>{title}</h3>
@@ -344,23 +344,23 @@ function App() {
                     {highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
                   </ul>
                 </div>
-                <div className="tag-row">
-                  {tags.map((tag) => <span key={tag}>{tag}</span>)}
-                </div>
-                {(liveUrl || githubUrl) && (
-                  <div className="project-actions">
-                    {liveUrl && (
-                      <a href={liveUrl} target="_blank" rel="noreferrer">
-                        View site <ArrowUpRight size={14} aria-hidden="true" />
-                      </a>
-                    )}
-                    {githubUrl && (
-                      <a href={githubUrl} target="_blank" rel="noreferrer">
-                        GitHub <ArrowUpRight size={14} aria-hidden="true" />
-                      </a>
-                    )}
+                <div className="project-footer">
+                  <div className="tag-row">
+                    {tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
-                )}
+                  {githubUrl && (
+                    <a
+                      className="project-github"
+                      href={githubUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`${title} on GitHub`}
+                      title="View on GitHub"
+                    >
+                      <Github size={18} aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
               </article>
             ))}
           </div>
