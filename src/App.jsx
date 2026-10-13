@@ -349,15 +349,8 @@ function App() {
                     {tags.map((tag) => <span key={tag}>{tag}</span>)}
                   </div>
                   {githubUrl && (
-                    <a
-                      className="project-github"
-                      href={githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      aria-label={`${title} on GitHub`}
-                      title="View on GitHub"
-                    >
-                      <Github size={18} aria-hidden="true" />
+                    <a className="project-link" href={githubUrl} target="_blank" rel="noreferrer">
+                      GitHub <ArrowUpRight size={14} aria-hidden="true" />
                     </a>
                   )}
                 </div>
