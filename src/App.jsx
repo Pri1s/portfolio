@@ -104,6 +104,7 @@ const projects = [
     description:
       "Checks internship repos and Greenhouse, Lever, Ashby, and SmartRecruiters boards every 15 minutes and posts new matching roles to Discord. Runs on Azure Functions and scales to zero between checks.",
     tags: ["Python", "Azure Functions", "Discord"],
+    githubUrl: "https://github.com/Pri1s/job-notis",
     featured: true,
     tone: "lime",
   },
