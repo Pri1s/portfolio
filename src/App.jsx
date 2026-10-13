@@ -62,8 +62,12 @@ const projects = [
   {
     id: "search-engine",
     title: "Search Engine",
-    description:
-      "A web search engine built from scratch that crawls, indexes, and ranks pages with field-aware BM25, returning the right page first for 90% of test searches. Runs as independently scaling services on Azure Kubernetes Service.",
+    highlights: [
+      "Built a web search engine from scratch that crawls, indexes, and ranks pages with field-aware BM25, returning the right page as the top result for 90% of test searches.",
+      "Replaced a global delay with a shared Redis frontier and per-domain limits for 5x faster crawling (27 → 135 pages/min).",
+      "Made saving each new page 100x faster with a write-ahead log, so newly crawled pages become searchable twice as fast.",
+      "Deployed the crawler, indexing worker, and search API as independently scaling services on Azure Kubernetes Service with managed PostgreSQL and Redis, isolating failures so one crashed service can't take down the rest.",
+    ],
     tags: ["FastAPI", "Redis", "Kubernetes", "BM25"],
     githubUrl: "https://github.com/Pri1s/search-engine",
     featured: true,
@@ -72,8 +76,12 @@ const projects = [
   {
     id: "fleet-os",
     title: "FleetOS",
-    description:
-      "A trucking fleet-management backend with 40+ FastAPI endpoints on a multi-tenant PostgreSQL schema, GPS and load-board syncing, a scheduled ETL of 2M+ federal carrier records, and a dispatch scorer that ranks trucks for each load.",
+    highlights: [
+      "Built a trucking fleet-management backend: 40+ REST endpoints in FastAPI on a multi-tenant PostgreSQL schema.",
+      "Deployed the API on an AWS EC2 instance and added fault-tolerant Geotab GPS and DAT load-board syncing.",
+      "Created a scheduled ETL job on Azure Kubernetes Service that validates, dedupes, and upserts 2M+ federal carrier records into PostgreSQL, replacing a manual daily script.",
+      "Implemented a dispatch scorer that ranks trucks for each load by empty miles, remaining legal driving hours, and delay risk.",
+    ],
     tags: ["FastAPI", "Next.js", "PostgreSQL", "AWS"],
     githubUrl: "https://github.com/malaybiswal/fleet-os",
     featured: true,
@@ -82,8 +90,10 @@ const projects = [
   {
     id: "nextup",
     title: "NextUp",
-    description:
-      "Film analytics for high school basketball, where no public models exist. A fine-tuned YOLO11 pose model detects 22 court landmarks, tripling detection accuracy (mAP 16.6% → 51.2%).",
+    highlights: [
+      "Building a high school basketball film analytics tool, where no public models exist and courts overlap other sports' lines.",
+      "Fine-tuned a YOLO11 pose model to detect 22 court landmarks on frames labeled with a custom annotation tool, raising detection accuracy 3x (mAP 16.6% → 51.2%).",
+    ],
     tags: ["PyTorch", "YOLO11", "Computer vision"],
     githubUrl: "https://github.com/Pri1s/NextUp",
     featured: true,
@@ -92,8 +102,11 @@ const projects = [
   {
     id: "boxmate",
     title: "boxmate",
-    description:
-      "Shadowbox someone live over webcam. I built the matchmaking queue, the WebSocket pairing and signaling server, and peer-to-peer WebRTC video in the browser.",
+    highlights: [
+      "Built the real-time backend for a webcam shadowboxing app: a Node.js/TypeScript WebSocket server that queues players, pairs them first-come-first-served, and relays WebRTC signaling between browsers.",
+      "Set up peer-to-peer webcam video with WebRTC so streams flow directly between players instead of through the server.",
+      "Wrote Vitest tests for matchmaking and signaling, covering players who disconnect while waiting and messages that break the protocol.",
+    ],
     tags: ["TypeScript", "WebRTC", "WebSockets"],
     featured: true,
     tone: "paper",
@@ -101,8 +114,11 @@ const projects = [
   {
     id: "job-notis",
     title: "Job Notis",
-    description:
-      "Checks internship repos and Greenhouse, Lever, Ashby, and SmartRecruiters boards every 15 minutes and posts new matching roles to Discord. Runs on Azure Functions and scales to zero between checks.",
+    highlights: [
+      "Built a Discord job-alert bot that checks 4 public internship lists and Greenhouse, Lever, Ashby, and SmartRecruiters job boards every 15 minutes and posts new matching roles.",
+      "Moved it from a local macOS scheduled job to serverless Azure Functions that scale to zero between checks, storing SQLite state in Azure Blob Storage under a lease so runs never overlap.",
+      "Kept failed or partial board fetches from wiping out existing jobs with full-snapshot validation, retries, and per-host rate limits, backed by 161 tests.",
+    ],
     tags: ["Python", "Azure Functions", "Discord"],
     githubUrl: "https://github.com/Pri1s/job-notis",
     featured: true,
@@ -111,8 +127,11 @@ const projects = [
   {
     id: "hs-athletes-api",
     title: "High School Athletes API",
-    description:
-      "A centralized, public API that makes high-school athlete data easier to find, query, and build on.",
+    highlights: [
+      "Building a public API for high school basketball data, scraping rosters and box scores from official Nike EYBL Scholastic and Overtime Elite pages into PostgreSQL.",
+      "Keyed each player by their source site's own ID instead of name or jersey, so ingestion upserts can rerun without creating duplicate players.",
+      "Serves athlete profiles and per-game stats through FastAPI, with Alembic migrations and an exception queue for rows that fail validation.",
+    ],
     tags: ["Python", "FastAPI", "Data pipeline"],
     githubUrl: "https://github.com/Pri1s/hs-athletes-api",
     featured: true,
@@ -191,7 +210,7 @@ function App() {
           <div className="hero-copy">
             <p className="hero-kicker reveal reveal-delay-1">Hello there, I’m</p>
             <h1 className="reveal reveal-delay-1">
-              Pri
+              Priyansu
               <br />
               Biswal<span className="period">.</span>
             </h1>
@@ -236,7 +255,7 @@ function App() {
                 href="https://github.com/Pri1s"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Pri Biswal on GitHub"
+                aria-label="Priyansu Biswal on GitHub"
               >
                 <Github size={18} />
               </a>
@@ -244,11 +263,11 @@ function App() {
                 href="https://www.linkedin.com/in/priyansubiswal/"
                 target="_blank"
                 rel="noreferrer"
-                aria-label="Pri Biswal on LinkedIn"
+                aria-label="Priyansu Biswal on LinkedIn"
               >
                 <Linkedin size={18} />
               </a>
-              <a href="mailto:pribiswal7@gmail.com" aria-label="Email Pri Biswal">
+              <a href="mailto:pribiswal7@gmail.com" aria-label="Email Priyansu Biswal">
                 <Mail size={18} />
               </a>
             </div>
@@ -317,11 +336,13 @@ function App() {
           </div>
 
           <div className="project-grid">
-            {projects.map(({ id, title, description, tags, githubUrl, liveUrl, tone }) => (
+            {projects.map(({ id, title, highlights, tags, githubUrl, liveUrl, tone }) => (
               <article className={`project-card project-card-${tone}`} key={id}>
                 <div>
                   <h3>{title}</h3>
-                  <p>{description}</p>
+                  <ul>
+                    {highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+                  </ul>
                 </div>
                 <div className="tag-row">
                   {tags.map((tag) => <span key={tag}>{tag}</span>)}
@@ -369,7 +390,7 @@ function App() {
       </main>
 
       <footer>
-        <p>Designed & built by Pri Biswal.</p>
+        <p>Designed & built by Priyansu Biswal.</p>
         <div>
           <a href="https://github.com/Pri1s" target="_blank" rel="noreferrer">
             GitHub <ArrowUpRight size={13} />

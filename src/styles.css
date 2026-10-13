@@ -519,12 +519,22 @@ a {
   line-height: 1.02;
 }
 
-.project-card p {
+.project-card ul {
+  display: grid;
+  gap: 8px;
   margin: 0;
+  padding-left: 16px;
   color: inherit;
-  opacity: 0.68;
   font-size: 13px;
-  line-height: 1.65;
+  line-height: 1.6;
+}
+
+.project-card li {
+  opacity: 0.78;
+}
+
+.project-card li::marker {
+  opacity: 0.6;
 }
 
 .tag-row {
