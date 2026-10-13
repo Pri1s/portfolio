@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import {
   ArrowDownRight,
   ArrowUpRight,
+  BriefcaseBusiness,
   Check,
   FolderKanban,
   Github,
@@ -14,30 +15,97 @@ import {
 
 const navigation = [
   { id: "about", label: "About Me", icon: UserRound },
+  { id: "experience", label: "Experience", icon: BriefcaseBusiness },
   { id: "projects", label: "Projects", icon: FolderKanban },
   { id: "contact", label: "Contact", icon: Mail },
 ];
 
-const projects = [
+const experience = [
+  {
+    id: "american-airlines",
+    organization: "Aggie Data Science Club × American Airlines",
+    role: "Team Lead, Future Market Prediction",
+    dates: "Sept. 2026 – Present",
+    highlights: [
+      "Leading a team of 4 students forecasting airline market demand up to 2 years out for American Airlines' Network Planning team.",
+      "Training an XGBoost model on 300K+ flights that explains 98% of ticket price variation (R² = 0.978) on unseen flights.",
+    ],
+    linkUrl: "https://github.com/TAMU-Aggie-Data-Science-Club/fall2026-american-airlines",
+    linkLabel: "GitHub",
+  },
   {
     id: "finch",
-    title: "Finch",
+    organization: "Finch",
+    role: "Software Engineer Intern",
+    dates: "June 2026 – Aug. 2026",
+    highlights: [
+      "Built a RAG pipeline that retrieves jobs from 93K pgvector embeddings for LLM fit scoring, and cut vector search from 8.3 s to 1.3 ms with an HNSW index.",
+      "Cut failed profile builds from 38% to 5% with the team by catching cut-off LLM responses, forcing structured JSON output, and parallelizing LLM calls.",
+      "Automated releases with GitHub Actions CI/CD that tests every PR and deploys to staging and production for all 5 developers.",
+    ],
+    linkUrl: "https://applyfinch.com/home",
+    linkLabel: "View site",
+  },
+  {
+    id: "maroon-fund",
+    organization: "Maroon Fund at Texas A&M",
+    role: "Quant Engineer",
+    dates: "Jan. 2026 – Present",
+    highlights: [
+      "Rebuilt the backtesting system for a student-led fund managing $70K after catching a 104% backtest that had been tested on its own training data.",
+      "Backtested a 65% return vs. 26% for holding NVDA over a year of unseen market data, after trading costs (Sharpe ratio 1.43).",
+    ],
+  },
+];
+
+const projects = [
+  {
+    id: "search-engine",
+    title: "Search Engine",
     description:
-      "Building AI-powered hiring tools, including autofill and resume-enrichment systems that combine hand-tuned logic with LLM reasoning.",
-    tags: ["AI", "LLMs", "Product engineering"],
-    liveUrl: "https://applyfinch.com/home",
-    featured: false,
-    tone: "orange",
+      "A web search engine built from scratch that crawls, indexes, and ranks pages with field-aware BM25, returning the right page first for 90% of test searches. Runs as independently scaling services on Azure Kubernetes Service.",
+    tags: ["FastAPI", "Redis", "Kubernetes", "BM25"],
+    githubUrl: "https://github.com/Pri1s/search-engine",
+    featured: true,
+    tone: "ink",
+  },
+  {
+    id: "fleet-os",
+    title: "FleetOS",
+    description:
+      "A trucking fleet-management backend with 40+ FastAPI endpoints on a multi-tenant PostgreSQL schema, GPS and load-board syncing, a scheduled ETL of 2M+ federal carrier records, and a dispatch scorer that ranks trucks for each load.",
+    tags: ["FastAPI", "Next.js", "PostgreSQL", "AWS"],
+    githubUrl: "https://github.com/malaybiswal/fleet-os",
+    featured: true,
+    tone: "paper",
   },
   {
     id: "nextup",
     title: "NextUp",
     description:
-      "A basketball-court keypoint pipeline for turning game footage into reliable training data for pose models.",
-    tags: ["Python", "Computer vision", "YOLO"],
+      "Film analytics for high school basketball, where no public models exist. A fine-tuned YOLO11 pose model detects 22 court landmarks, tripling detection accuracy (mAP 16.6% → 51.2%).",
+    tags: ["PyTorch", "YOLO11", "Computer vision"],
     githubUrl: "https://github.com/Pri1s/NextUp",
     featured: true,
+    tone: "orange",
+  },
+  {
+    id: "boxmate",
+    title: "boxmate",
+    description:
+      "Shadowbox someone live over webcam. I built the matchmaking queue, the WebSocket pairing and signaling server, and peer-to-peer WebRTC video in the browser.",
+    tags: ["TypeScript", "WebRTC", "WebSockets"],
+    featured: true,
     tone: "paper",
+  },
+  {
+    id: "job-notis",
+    title: "Job Notis",
+    description:
+      "Checks internship repos and Greenhouse, Lever, Ashby, and SmartRecruiters boards every 15 minutes and posts new matching roles to Discord. Runs on Azure Functions and scales to zero between checks.",
+    tags: ["Python", "Azure Functions", "Discord"],
+    featured: true,
+    tone: "lime",
   },
   {
     id: "hs-athletes-api",
@@ -47,27 +115,7 @@ const projects = [
     tags: ["Python", "FastAPI", "Data pipeline"],
     githubUrl: "https://github.com/Pri1s/hs-athletes-api",
     featured: true,
-    tone: "lime",
-  },
-  {
-    id: "search-engine",
-    title: "Search Engine",
-    description:
-      "A basketball vertical search engine with BM25 ranking and title boosting to surface the most relevant results.",
-    tags: ["FastAPI", "PostgreSQL", "BM25"],
-    githubUrl: "https://github.com/Pri1s/search-engine",
-    featured: true,
     tone: "paper",
-  },
-  {
-    id: "fleet-os",
-    title: "FleetOS",
-    description:
-      "An operations intelligence dashboard for trucking fleets, with a FastAPI backend, PostgreSQL data layer, and Next.js frontend.",
-    tags: ["Next.js", "FastAPI", "PostgreSQL"],
-    githubUrl: "https://github.com/malaybiswal/fleet-os",
-    featured: true,
-    tone: "ink",
   },
 ];
 
@@ -156,17 +204,17 @@ function App() {
               I'm a Computer Science student at Texas A&amp;M University
               (Engineering Honors), building software that sits at the
               intersection of backend systems and AI/ML infrastructure.
-              Currently, I'm a Software Developer at{" "}
+              Right now I'm leading an American Airlines demand-forecasting
+              project with the Aggie Data Science Club and working as a quant
+              engineer at Maroon Fund. This past summer I was a software
+              engineer intern at{" "}
               <a href="https://applyfinch.com/home" target="_blank" rel="noreferrer">
                 Finch
                 <ArrowUpRight size={12} strokeWidth={2} aria-hidden="true" />
               </a>
-              , where I work on systems like autofill and resume-enrichment
-              pipelines that combine hand-tuned logic with LLM-powered
-              reasoning. I also have a strong interest in sports, and my latest
-              projects reflect that: I'm building a basketball game analysis
-              platform focused on high-school basketball, along with a
-              centralized API for high-school basketball athletes.
+              , where I built the RAG pipeline that matches users to jobs. I
+              also love sports, and it shows in my projects: I'm building a
+              computer-vision tool for high school basketball film.
             </p>
 
             <div className="hero-actions reveal reveal-delay-3">
@@ -192,7 +240,7 @@ function App() {
                 <Github size={18} />
               </a>
               <a
-                href="https://www.linkedin.com/in/priyansu-biswal-677532279/"
+                href="https://www.linkedin.com/in/priyansubiswal/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Pri Biswal on LinkedIn"
@@ -224,13 +272,46 @@ function App() {
           </button>
         </section>
 
+        <section className="experience section-pad content-section" id="experience">
+          <div className="section-heading section-heading-row">
+            <div>
+              <h2>Experience.</h2>
+            </div>
+            <p>
+              Where I’ve been shipping lately, from production AI features to forecasting and quant research.
+            </p>
+          </div>
+
+          <ol className="experience-list">
+            {experience.map(({ id, organization, role, dates, highlights, linkUrl, linkLabel }) => (
+              <li className="experience-item" key={id}>
+                <div className="experience-meta">
+                  <span className="experience-dates">{dates}</span>
+                  {linkUrl && (
+                    <a href={linkUrl} target="_blank" rel="noreferrer">
+                      {linkLabel} <ArrowUpRight size={13} aria-hidden="true" />
+                    </a>
+                  )}
+                </div>
+                <div>
+                  <h3>{organization}</h3>
+                  <p className="experience-role">{role}</p>
+                  <ul>
+                    {highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+                  </ul>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+
         <section className="projects section-pad content-section" id="projects">
           <div className="section-heading section-heading-row">
             <div>
               <h2>Selected work.</h2>
             </div>
             <p>
-              Recent projects across basketball intelligence, computer vision, and developer-focused data systems.
+              Recent projects across search, backend infrastructure, computer vision, and real-time apps.
             </p>
           </div>
 
