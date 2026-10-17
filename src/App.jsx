@@ -74,6 +74,19 @@ const projects = [
     tone: "ink",
   },
   {
+    id: "prip",
+    title: "Prip — RTL Debug Agent",
+    highlights: [
+      "Built an LLM agent that debugs Verilog hardware designs by writing cocotb tests, running simulations, locating faulty lines, and patching the code through an MCP tool server.",
+      "Created a benchmark of 180 three-bug design variants and a formal equivalence grader that only accepts fixes proven to match the reference design from reset.",
+      "Reached a 96% verified repair rate vs. 65% for a single-shot baseline using the same Haiku 5.5 model across 360 paired runs.",
+    ],
+    tags: ["Python", "Verilog", "MCP", "Docker"],
+    githubUrl: "https://github.com/Pri1s/Prip",
+    featured: true,
+    tone: "paper",
+  },
+  {
     id: "fleet-os",
     title: "FleetOS",
     highlights: [
@@ -331,7 +344,7 @@ function App() {
               <h2>Selected work.</h2>
             </div>
             <p>
-              Recent projects across search, backend infrastructure, computer vision, and real-time apps.
+              Recent projects across search, AI agents, backend infrastructure, computer vision, and real-time apps.
             </p>
           </div>
 
