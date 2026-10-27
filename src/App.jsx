@@ -294,7 +294,7 @@ function App() {
             <p className="resume-copy">A concise overview of my experience and selected work.</p>
             <a
               className="resume-link"
-              href={`${import.meta.env.BASE_URL}priyansu-biswal-resume.pdf`}
+              href={`${import.meta.env.BASE_URL}priyansu-biswal-resume.pdf?v=${__RESUME_VERSION__}`}
               target="_blank"
               rel="noreferrer"
             >
