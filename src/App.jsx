@@ -28,7 +28,8 @@ const experience = [
     dates: "Sept. 2026 – Present",
     highlights: [
       "Leading a team of 4 students forecasting airline market demand up to 2 years out for American Airlines' Network Planning team.",
-      "Training an XGBoost model on 300K+ flights that explains 98% of ticket price variation (R² = 0.978) on unseen flights.",
+      "Benchmarked ticket-price models on 300K+ flights with 5-fold cross-validation; a Random Forest cut average error 45% vs. XGBoost (7% vs. 14% average error).",
+      "Audited the model for data leakage, finding row order (the CSV was sorted by seat class) ranked 2nd in feature importance, then confirmed with cross-validation that accuracy held (R² 0.978 → 0.977).",
     ],
     linkUrl: "https://github.com/TAMU-Aggie-Data-Science-Club/fall2026-american-airlines",
     linkLabel: "GitHub",
@@ -39,9 +40,11 @@ const experience = [
     role: "Software Engineer Intern",
     dates: "June 2026 – Aug. 2026",
     highlights: [
-      "Built a RAG pipeline that retrieves jobs from 93K pgvector embeddings for LLM fit scoring, and cut vector search from 8.3 s to 1.3 ms with an HNSW index.",
-      "Cut failed profile builds from 38% to 5% with the team by catching cut-off LLM responses, forcing structured JSON output, and parallelizing LLM calls.",
-      "Automated releases with GitHub Actions CI/CD that tests every PR and deploys to staging and production for all 5 developers.",
+      "Built backend and AI features for Finch, a 250+ user job-search app that matches jobs and tailors resumes with LLMs.",
+      "Built a RAG pipeline that retrieves jobs from 93K pgvector embeddings for LLM fit scoring, filtering by seniority so intern searches stop returning senior roles; cut vector search from 8.3 s to 1.3 ms with an HNSW index.",
+      "Sped up the first pass of the user profile builder, which turns LinkedIn, GitHub, and resume data into a structured profile, 2.19× by moving it to a faster LLM, with no drop in output quality in side-by-side tests.",
+      "Cut failed profile builds from 38% to 5% with the team by catching cut-off LLM responses, forcing structured JSON output, and splitting each project into its own parallel LLM call.",
+      "Automated releases with GitHub Actions CI/CD that tests every PR (Pytest, Playwright) and deploys to staging and production, removing manual release steps for all 5 developers.",
     ],
     linkUrl: "https://applyfinch.com/home",
     linkLabel: "View site",
@@ -52,8 +55,9 @@ const experience = [
     role: "Quant Engineer",
     dates: "Jan. 2026 – Present",
     highlights: [
-      "Rebuilt the backtesting system for a student-led fund managing $70K after catching a 104% backtest that had been tested on its own training data.",
-      "Backtested a 65% return vs. 26% for holding NVDA over a year of unseen market data, after trading costs (Sharpe ratio 1.43).",
+      "Caught a train/test leak inflating the $70K student-managed fund’s backtest to 104% (the holdout overlapped labeled training dates); rebuilt validation with causal features and a clean 263-day holdout covered by 25 unit tests.",
+      "Built a day-by-day trade simulator with a 3-source data fallback (Alpha Vantage, yfinance, CSV); on the holdout, the strategy returned 65% after costs vs. 26% for holding NVDA (Sharpe ratio 1.43).",
+      "Added risk analytics (Sortino, max drawdown, alpha, beta) benchmarked against the S&P 500, showing the strategy captured 137% of its up-day gains but only 89% of its down-day losses.",
     ],
   },
 ];
