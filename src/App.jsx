@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import resumePreview from "./assets/resume-preview.webp";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -291,15 +292,27 @@ function App() {
           </div>
 
           <aside className="resume-section reveal reveal-delay-2" aria-label="Résumé">
-            <p className="resume-copy">A concise overview of my experience and selected work.</p>
             <a
-              className="resume-link"
+              className="resume-frame"
               href={`${import.meta.env.BASE_URL}priyansu-biswal-resume.pdf?v=${__RESUME_VERSION__}`}
               target="_blank"
               rel="noreferrer"
+              aria-label="Open Priyansu Biswal’s résumé PDF in a new tab"
             >
-              View my résumé
-              <ArrowUpRight size={17} aria-hidden="true" />
+              <img
+                className="resume-preview"
+                src={resumePreview}
+                alt=""
+                width="1237"
+                height="1600"
+                decoding="async"
+              />
+              <span className="resume-caption">
+                <span>View my résumé</span>
+                <span className="resume-caption-action">
+                  PDF <ArrowUpRight size={17} aria-hidden="true" />
+                </span>
+              </span>
             </a>
           </aside>
 
